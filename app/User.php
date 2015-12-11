@@ -35,5 +35,16 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password'];
+
+    /**
+     * This method gives the user model access to the other Model that we want to associate with this one,
+     * this could be an Dosen model or a Mahasiswa model.
+     *
+     * @return User specialized type.
+     */
+    public function userable()
+    {
+        return $this->morphTo();
+    }
 }
