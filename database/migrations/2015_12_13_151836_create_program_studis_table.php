@@ -3,29 +3,26 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMahasiswasTable extends Migration
+class CreateProgramStudisTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
-        Schema::create('mahasiswa', function (Blueprint $table) {
+        Schema::create('program_studi', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nim', 20);
+            $table->string('nama', 60);
+            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {
-        Schema::drop('mahasiswas');
+        Schema::drop('program_studis');
     }
 }

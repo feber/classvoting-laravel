@@ -12,7 +12,7 @@ class CreateDosensTable extends Migration
      */
     public function up()
     {
-        Schema::create('dosens', function (Blueprint $table) {
+        Schema::create('dosen', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nip', 20);
             $table->timestamps();
