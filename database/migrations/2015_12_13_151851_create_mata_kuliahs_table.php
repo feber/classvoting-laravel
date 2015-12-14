@@ -12,7 +12,7 @@ class CreateMataKuliahsTable extends Migration
     {
         Schema::create('mata_kuliah', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 60);
+            $table->string('nama', 60);
             $table->string('kode', 10)->nullable();
             $table->text('deskripsi')->nullable();
             $table->integer('prodi_id')->unsigned();
