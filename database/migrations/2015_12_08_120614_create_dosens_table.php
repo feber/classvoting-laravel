@@ -26,6 +26,6 @@ class CreateDosensTable extends Migration
      */
     public function down()
     {
-        Schema::drop('dosens');
+        Schema::drop('dosen');
     }
 }

@@ -26,6 +26,6 @@ class CreateMahasiswasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('mahasiswas');
+        Schema::drop('mahasiswa');
     }
 }

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\ProgramStudi;
+use App\MataKuliah;
 
 class MataKuliahController extends Controller
 {
@@ -16,7 +15,9 @@ class MataKuliahController extends Controller
      */
     public function index()
     {
-        //
+        $makuls = MataKuliah::all();
+
+        return view('makul.index', compact('makuls'));
     }
 
     /**
@@ -26,62 +27,81 @@ class MataKuliahController extends Controller
      */
     public function create()
     {
-        //
+        $prodis = ProgramStudi::lists('nama', 'id')->toArray();
+
+        return view('makul.create', compact('prodis'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        MataKuliah::create($request->all());
+
+        return redirect('makul');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $makul = MataKuliah::find($id);
+
+        return view('makul.show', compact('makul'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $prodis = ProgramStudi::lists('nama', 'id')->toArray();
+        $makul = MataKuliah::find($id);
+
+        return view('makul.edit', compact('prodis', 'makul'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $makul = MataKuliah::find($id);
+        $makul->update($request->all());
+
+        return redirect('makul');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        MataKuliah::destroy($id);
+
+        return redirect('makul');
     }
 }

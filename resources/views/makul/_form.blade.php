@@ -14,5 +14,10 @@
 </div>
 
 <div class="form-group">
+    {!! Form::label('prodi_id', 'Program studi:') !!}
+    {!! Form::select('prodi_id', $prodis, null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
     {!! Form::submit($submitText, ['class' => 'btn btn-primary btn-block']) !!}
 </div>

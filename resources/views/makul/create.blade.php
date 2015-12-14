@@ -1,11 +1,11 @@
 @extends('app')
 @section('content')
 
-<h1>Tambah program studi</h1>
+<h1>Tambah mata kuliah</h1>
 
-{!! Form::open(['url'=>'prodi']) !!}
+{!! Form::open(['url'=>'makul']) !!}
 
-@include('prodi._form', ['submitText' => 'Tambah'])
+@include('makul._form', ['submitText' => 'Tambah'])
 
 {!! Form::close() !!}
 

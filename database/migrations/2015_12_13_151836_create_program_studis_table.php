@@ -23,6 +23,6 @@ class CreateProgramStudisTable extends Migration
      */
     public function down()
     {
-        Schema::drop('program_studis');
+        Schema::drop('program_studi');
     }
 }
