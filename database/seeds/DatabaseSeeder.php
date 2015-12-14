@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'feber@a.a',
             'password' => bcrypt('feber'),
             'userable_id' => $admin->id,
-            'userable_type' => 'App\Admin',
+            'userable_type' => User::TYPE_ADMIN,
         ]);
 
         $dosen = Dosen::create([
@@ -33,7 +33,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'mahar@a.a',
             'password' => bcrypt('mahar'),
             'userable_id' => $dosen->id,
-            'userable_type' => 'App\Dosen',
+            'userable_type' => User::TYPE_DOSEN,
         ]);
 
         $mahasiswa = Mahasiswa::create([
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'dimas@a.a',
             'password' => bcrypt('dimas'),
             'userable_id' => $mahasiswa->id,
-            'userable_type' => 'App\Mahasiswa',
+            'userable_type' => User::TYPE_MAHASISWA,
         ]);
         Model::reguard();
     }

@@ -37,6 +37,11 @@ class User extends Model implements AuthenticatableContract,
      */
     protected $hidden = ['password'];
 
+    // TODO comments
+    const TYPE_ADMIN = 'App\Admin';
+    const TYPE_DOSEN = 'App\Dosen';
+    const TYPE_MAHASISWA = 'App\Mahasiswa';
+
     /**
      * This method gives the user model access to the other Model that we want to associate with this one,
      * this could be an Dosen model or a Mahasiswa model.

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\User;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies($gate);
 
-        //
+        $gate->define('manage-prodi', function($user) {
+            return $user->userable_type === User::TYPE_ADMIN;
+        });
+
+        $gate->define('manage-makul', function($user) {
+            return $user->userable_type === User::TYPE_ADMIN;
+        });
     }
 }
