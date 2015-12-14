@@ -10,6 +10,6 @@ class Dosen extends Model
 
     public function user()
     {
-        return $this->morphOne('User', 'userable');
+        return $this->morphOne('App\User', 'userable');
     }
 }

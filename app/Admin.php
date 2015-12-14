@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Mahasiswa extends Model
+class Admin extends Model
 {
-    protected $table = 'mahasiswa';
+    protected $table = 'admin';
 
     public function user()
     {
