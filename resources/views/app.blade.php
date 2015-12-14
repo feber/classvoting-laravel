@@ -30,6 +30,15 @@
                     <li><a href="{{ url('prodi') }}">Program Studi</a></li>
                     <li><a href="{{ url('makul') }}">Mata Kuliah</a></li>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                    @if(Auth::check())
+                        <a href="{{ url('/auth/logout') }}"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Sign Out</a>
+                    @else
+                        <a href="{{ url('/auth/login') }}"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Sign In</a>
+                    @endif
+                    </li>
+                </ul>
             </div>
             <!--/.nav-collapse -->
         </div>

@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->integer('userable_id')->unsigned();
             $table->string('userable_type', 20);
+            $table->rememberToken()->nullable();
             $table->timestamps();
         });
     }

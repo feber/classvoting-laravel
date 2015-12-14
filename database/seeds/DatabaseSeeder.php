@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'nama' => 'feber',
             'email' => 'feber@a.a',
-            'password' => 'feber',
+            'password' => bcrypt('feber'),
             'userable_id' => $admin->id,
             'userable_type' => 'App\Admin',
         ]);
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'nama' => 'mahar',
             'email' => 'mahar@a.a',
-            'password' => 'mahar',
+            'password' => bcrypt('mahar'),
             'userable_id' => $dosen->id,
             'userable_type' => 'App\Dosen',
         ]);
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
         $user = User::create([
             'nama' => 'dimas',
             'email' => 'dimas@a.a',
-            'password' => 'dimas',
+            'password' => bcrypt('dimas'),
             'userable_id' => $mahasiswa->id,
             'userable_type' => 'App\Mahasiswa',
         ]);
