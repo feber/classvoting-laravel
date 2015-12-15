@@ -34,5 +34,9 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('manage-makul', function($user) {
             return $user->userable_type === User::TYPE_ADMIN;
         });
+
+        $gate->define('pilih-makul', function($user) {
+            return $user->userable_type === User::TYPE_DOSEN;
+        });
     }
 }

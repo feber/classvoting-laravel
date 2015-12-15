@@ -15,6 +15,7 @@ class CreateMahasiswasTable extends Migration
         Schema::create('mahasiswa', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nim', 20);
+            $table->boolean('voted')->default(false);
             $table->timestamps();
         });
     }
