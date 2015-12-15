@@ -34,7 +34,7 @@
                     <li><a href="{{ url('makul') }}">Mata Kuliah</a></li>
                     @endcan
                     @can('pilih-makul', Auth::user())
-                    <li><a href="{{ url('makul') }}">Pilih Mata Kuliah</a></li>
+                    <li><a href="{{ url('kelas') }}">Pilih Mata Kuliah</a></li>
                     @endcan
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

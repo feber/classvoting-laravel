@@ -12,7 +12,6 @@
 */
 
 // Authentication routes...
-// TODO still redirect to home
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
@@ -21,5 +20,9 @@ Route::get('/', function () {
     return redirect('prodi');
 });
 
+// TODO dosen milih mata kuliah auto buka kelas
+Route::resource('kelas', 'KelasController');
+
+// TODO middleware admin
 Route::resource('prodi', 'ProgramStudiController');
 Route::resource('makul', 'MataKuliahController');
