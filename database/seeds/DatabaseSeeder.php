@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $dosen = Dosen::create([
-            'nip' => 'd1'
+            'nip' => 'd1',
         ]);
         $user = User::create([
             'nama' => 'mahar',
@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $mahasiswa = Mahasiswa::create([
-            'nim' => 'm1'
+            'nim' => 'm1',
         ]);
         $user = User::create([
             'nama' => 'dimas',
@@ -45,6 +45,16 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('dimas'),
             'userable_id' => $mahasiswa->id,
             'userable_type' => User::TYPE_MAHASISWA,
+        ]);
+
+        $prodi = ProgramStudi::create([
+            'nama' => 'S1 Teknik Informatika',
+            'deskripsi' => 'Informatika adalah.....',
+        ]);
+        $makul = MataKuliah::create([
+            'nama' => 'DAA',
+            'deskripsi' => 'Main algoritma...',
+            'prodi_id' => $prodi->id
         ]);
         Model::reguard();
     }

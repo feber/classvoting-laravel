@@ -18,4 +18,9 @@ class MataKuliah extends Model
     {
         return $this->belongsTo('App\ProgramStudi');
     }
+
+    public function makul()
+    {
+        return $this->belongsToMany('App\Dosen')->withPivot('kapasitas', 'peminat');
+    }
 }

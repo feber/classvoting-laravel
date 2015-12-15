@@ -12,4 +12,9 @@ class Dosen extends Model
     {
         return $this->morphOne('App\User', 'userable');
     }
+
+    public function makul()
+    {
+        return $this->belongsToMany('App\MataKuliah')->withPivot('kapasitas', 'peminat');
+    }
 }

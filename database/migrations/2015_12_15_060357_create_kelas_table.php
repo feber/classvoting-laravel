@@ -15,7 +15,8 @@ class CreateKelasTable extends Migration
         Schema::create('kelas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama',60);
-            $table->integer('jumlah')->unsigned()->default(0);
+            $table->integer('kapasitas')->unsigned()->default(0);
+            $table->integer('peminat')->unsigned()->default(0);
             $table->integer('dosen_id')->unsigned();
             $table->integer('makul_id')->unsigned();
 
