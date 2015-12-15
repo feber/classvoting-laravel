@@ -3,16 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Kelas;
 
 class VoteController extends Controller
 {
+    /**
+     * Vote landing page for Mahasiswa.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         return view('vote.index');
     }
 
+    /**
+     * Show Mata Kuliah on vote page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function start()
     {
         // TODO filter by nim
@@ -25,10 +34,16 @@ class VoteController extends Controller
         return view('vote.start', compact('kelas'));
     }
 
-    public function save(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
         // TODO loop through input
         // set status mhs ini udah vote
-
     }
 }
