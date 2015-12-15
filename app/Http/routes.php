@@ -27,6 +27,12 @@ Route::group(['middleware' => 'role:'.App\User::TYPE_DOSEN], function () {
 
 // TODO middleware admin
 Route::group(['middleware' => 'role:'.App\User::TYPE_ADMIN], function () {
-    Route::resource('prodi', 'ProgramStudiController');
     Route::resource('makul', 'MataKuliahController');
+    Route::resource('prodi', 'ProgramStudiController');
+    Route::resource('user', 'UserDataController');
+});
+
+Route::group(['middleware' => 'role:'.App\User::TYPE_MAHASISWA], function () {
+    Route::get('vote', 'VoteController@index');
+    Route::get('vote/start', 'VoteController@start');
 });

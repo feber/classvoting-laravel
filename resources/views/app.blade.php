@@ -28,6 +28,9 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
+                    @can('manage-user', Auth::user())
+                    <li><a href="{{ url('user') }}">Data Pengguna</a></li>
+                    @endcan
                     @can('manage-prodi', Auth::user())
                     <li><a href="{{ url('prodi') }}">Program Studi</a></li>
                     @endcan
@@ -36,6 +39,9 @@
                     @endcan
                     @can('pilih-makul', Auth::user())
                     <li><a href="{{ url('kelas') }}">Pilih Mata Kuliah</a></li>
+                    @endcan
+                    @can('vote-makul', Auth::user())
+                    <li><a href="{{ url('vote') }}">Vote Mata Kuliah</a></li>
                     @endcan
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
