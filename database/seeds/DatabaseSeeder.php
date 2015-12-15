@@ -6,6 +6,8 @@ use App\Admin;
 use App\Dosen;
 use App\Mahasiswa;
 use App\User;
+use App\ProgramStudi;
+use App\MataKuliah;
 
 class DatabaseSeeder extends Seeder
 {
@@ -53,6 +55,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $makul = MataKuliah::create([
             'nama' => 'DAA',
+            'kode' => 'CSG1xx',
             'deskripsi' => 'Main algoritma...',
             'prodi_id' => $prodi->id
         ]);
