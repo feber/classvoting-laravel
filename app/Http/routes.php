@@ -17,12 +17,16 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 Route::get('/', function () {
-    return redirect('prodi');
+    return view('welcome');
 });
 
 // TODO dosen milih mata kuliah auto buka kelas
-Route::resource('kelas', 'KelasController');
+Route::group(['middleware' => 'role:'.App\User::TYPE_DOSEN], function () {
+    Route::resource('kelas', 'KelasController');
+});
 
 // TODO middleware admin
-Route::resource('prodi', 'ProgramStudiController');
-Route::resource('makul', 'MataKuliahController');
+Route::group(['middleware' => 'role:'.App\User::TYPE_ADMIN], function () {
+    Route::resource('prodi', 'ProgramStudiController');
+    Route::resource('makul', 'MataKuliahController');
+});

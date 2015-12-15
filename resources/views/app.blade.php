@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link rel="stylesheet" href="{{url('css/bootstrap.min.css')}}" media="screen" title="no title" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <style media="screen">
         body {
             padding-top: 60px;
