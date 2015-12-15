@@ -38,6 +38,7 @@ class ProgramStudiController extends Controller
      */
     public function store(Request $request)
     {
+        // TODO validasi null
         ProgramStudi::create($request->all());
 
         return redirect('prodi');
@@ -52,6 +53,7 @@ class ProgramStudiController extends Controller
      */
     public function show($id)
     {
+        // TODO handle modelnotfoundexception
         $prodi = ProgramStudi::findOrFail($id);
 
         return view('prodi.show', compact('prodi'));

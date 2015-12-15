@@ -55,6 +55,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10">
+                <!-- TODO flash error message -->
                 @yield('content')
             </div>
         </div>
