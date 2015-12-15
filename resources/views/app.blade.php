@@ -47,9 +47,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                     @if(Auth::check())
-                        <a href="{{ url('auth/logout') }}"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Sign Out</a>
+                        <a href="{{ url('auth/logout') }}"> Sign Out</a>
                     @else
-                        <a href="{{ url('auth/login') }}"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Sign In</a>
+                        <a href="{{ url('auth/login') }}"> Sign In</a>
                     @endif
                     </li>
                 </ul>
@@ -69,6 +69,7 @@
 
     <script src="{{url('js/jquery.min.js')}}"></script>
     <script src="{{url('js/bootstrap.min.js')}}"></script>
+    @yield('script')
 </body>
 
 </html>

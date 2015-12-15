@@ -16,7 +16,6 @@ class CreateKelasTable extends Migration
             $table->increments('id');
             $table->string('nama',60);
             $table->integer('kapasitas')->unsigned()->default(0);
-            $table->integer('peminat')->unsigned()->default(0);
             $table->integer('dosen_id')->unsigned();
             $table->integer('makul_id')->unsigned();
 

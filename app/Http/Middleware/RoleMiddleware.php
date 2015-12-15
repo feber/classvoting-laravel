@@ -17,6 +17,10 @@ class RoleMiddleware
     {
         // TODO error flash message
 
+        if (!$request->user()) {
+            return redirect('/');
+        }
+
         if ($request->user()->userable_type !== $role) {
             return redirect('/');
         }

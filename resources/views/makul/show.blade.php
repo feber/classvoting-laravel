@@ -4,6 +4,7 @@
 <h1>{{ $makul->nama }}</h1>
 <p>{{ $makul->kode }}</p>
 <p>{{ $makul->prodi->nama }}</p>
+<p>{{ $makul->peminat }}</p>
 <p>{{ $makul->deskripsi }}</p>
 <hr>
 {!! Form::open(array('url' => 'makul/'.$makul->id)) !!}

@@ -1,11 +1,11 @@
 @extends('app')
 @section('content')
 
-<h1>Perbaharui {{$makul->nama}}</h1>
+<h1>Perbaharui {{$user->nama}}</h1>
 
-{!! Form::model($makul, ['method' => 'PUT', 'url' => 'makul/'.$makul->id ]) !!}
+{!! Form::model($user, ['method' => 'PUT', 'url' => 'user/'.$user->id ]) !!}
 
-@include('makul._form', ['submitText' => 'Perbaharui'])
+@include('user._form', ['submitText' => 'Perbaharui'])
 
 {!! Form::close() !!}
 

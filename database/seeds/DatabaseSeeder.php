@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             'deskripsi' => 'Informatika adalah.....',
         ]);
         $makul = MataKuliah::create([
-            'nama' => 'DAA',
+            'nama' => 'Desain Analisis Algoritma',
             'kode' => 'CSG1xx',
             'deskripsi' => 'Main algoritma...',
             'prodi_id' => $prodi->id

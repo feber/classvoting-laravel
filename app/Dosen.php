@@ -13,6 +13,14 @@ class Dosen extends Model
     protected $table = 'dosen';
 
     /**
+     * Columns which can be filled from mass assignment.
+     * @var string
+     */
+    protected $fillable = [
+        'nip'
+    ];
+
+    /**
      * Get particular user of this model
      * @return User
      */

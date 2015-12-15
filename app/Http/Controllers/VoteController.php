@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Kelas;
+use App\MataKuliah;
 
 class VoteController extends Controller
 {
@@ -29,9 +29,9 @@ class VoteController extends Controller
         // kalo yang lain berapa
         // ambil kelas buat vote dengan prodi yang sama
 
-        return $kelas = Kelas::all();
+        $makuls = MataKuliah::all();
 
-        return view('vote.start', compact('kelas'));
+        return view('vote.start', compact('makuls'));
     }
 
     /**

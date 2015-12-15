@@ -15,6 +15,7 @@ class CreateMataKuliahsTable extends Migration
             $table->string('nama', 60);
             $table->string('kode', 10)->nullable();
             $table->text('deskripsi')->nullable();
+            $table->integer('peminat')->unsigned()->default(0);
             $table->integer('prodi_id')->unsigned();
 
             $table->foreign('prodi_id')->references('id')->on('program_studi')->onDelete('cascade');

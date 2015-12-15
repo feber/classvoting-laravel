@@ -9,7 +9,7 @@
         <th>Nama</th>
         <th>Kode</th>
         <th>Program Studi</th>
-        <th>Deskripsi</th>
+        <th>Peminat</th>
         <th>Aksi</th>
     </tr>
 </thead>
@@ -21,7 +21,7 @@
         </td>
         <td>{{ $item->kode }}</td>
         <td>{{ $item->prodi->nama }}</td>
-        <td>{{ str_limit($item->deskripsi, 30) }}</td>
+        <td>{{ $item->peminat }}</td>
         <td>
             {!! Form::open(array('url' => 'makul/'.$item->id)) !!}
                 <a href="{{url('/makul', [$item->id, 'edit'])}}" class="btn btn-warning btn-xs">Perbaharui</a>

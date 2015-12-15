@@ -13,6 +13,14 @@ class Mahasiswa extends Model
     protected $table = 'mahasiswa';
 
     /**
+     * Columns which can be filled from mass assignment.
+     * @var string
+     */
+    protected $fillable = [
+        'nim',
+    ];
+
+    /**
      * Get particular user of this model
      * @return User
      */
