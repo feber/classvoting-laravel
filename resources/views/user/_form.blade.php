@@ -17,6 +17,11 @@
     @endif
 </div>
 
+<div class="form-group">
+    {!! Form::label('prodi_id', 'Program studi:') !!}
+    {!! Form::select('prodi_id', $prodis, isset($user->userable->prodi_id)?$user->userable->prodi_id:null, ['class' => 'form-control']) !!}
+</div>
+
 @if (!isset($user))
 <div class="form-group">
     {!! Form::label('role', 'Hak akses:') !!}

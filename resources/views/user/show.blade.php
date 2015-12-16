@@ -4,6 +4,7 @@
 <h1>{{ $user->nama }}</h1>
 <p>{{ $user->email }}</p>
 <p>{{ $user->userable_type }}</p>
+<p>{{ $user->userable->prodi_id }}</p>
 <p>{{ $user->role }}</p>
 <hr>
 {!! Form::open(array('url' => 'user/'.$user->id)) !!}

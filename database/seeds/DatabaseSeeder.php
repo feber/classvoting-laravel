@@ -18,6 +18,15 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
+        $if = ProgramStudi::create([
+            'nama' => 'S1 Teknik Informatika',
+            'deskripsi' => 'Informatika adalah.....',
+        ]);
+        $ik = ProgramStudi::create([
+            'nama' => 'S1 Ilmu Komputasi',
+            'deskripsi' => 'IK adalah.....',
+        ]);
+
         $admin = Admin::create();
         $user = User::create([
             'nama' => 'feber',
@@ -28,7 +37,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $dosen = Dosen::create([
-            'nip' => 'd1',
+            'nip' => '053',
+            'prodi_id' => $if->id,
         ]);
         $user = User::create([
             'nama' => 'mahar',
@@ -37,9 +47,21 @@ class DatabaseSeeder extends Seeder
             'userable_id' => $dosen->id,
             'userable_type' => User::TYPE_DOSEN,
         ]);
+        $dosen = Dosen::create([
+            'nip' => '054',
+            'prodi_id' => $if->id,
+        ]);
+        $user = User::create([
+            'nama' => 'sendy',
+            'email' => 'sendy@a.a',
+            'password' => bcrypt('sendy'),
+            'userable_id' => $dosen->id,
+            'userable_type' => User::TYPE_DOSEN,
+        ]);
 
         $mahasiswa = Mahasiswa::create([
-            'nim' => 'm1',
+            'nim' => '1103',
+            'prodi_id' => $if->id,
         ]);
         $user = User::create([
             'nama' => 'dimas',
@@ -48,16 +70,35 @@ class DatabaseSeeder extends Seeder
             'userable_id' => $mahasiswa->id,
             'userable_type' => User::TYPE_MAHASISWA,
         ]);
-
-        $prodi = ProgramStudi::create([
-            'nama' => 'S1 Teknik Informatika',
-            'deskripsi' => 'Informatika adalah.....',
+        $mahasiswa = Mahasiswa::create([
+            'nim' => '1107',
+            'prodi_id' => $ik->id,
         ]);
-        $makul = MataKuliah::create([
+        $user = User::create([
+            'nama' => 'ali',
+            'email' => 'ali@a.a',
+            'password' => bcrypt('ali'),
+            'userable_id' => $mahasiswa->id,
+            'userable_type' => User::TYPE_MAHASISWA,
+        ]);
+
+        MataKuliah::create([
             'nama' => 'Desain Analisis Algoritma',
             'kode' => 'CSG1xx',
             'deskripsi' => 'Main algoritma...',
-            'prodi_id' => $prodi->id
+            'prodi_id' => $if->id,
+        ]);
+        MataKuliah::create([
+            'nama' => 'Algoritma Struktur Data',
+            'kode' => 'CSG2xx',
+            'deskripsi' => 'ASD...',
+            'prodi_id' => $if->id,
+        ]);
+        MataKuliah::create([
+            'nama' => 'Data Mining',
+            'kode' => 'CSH1xx',
+            'deskripsi' => 'Main data...',
+            'prodi_id' => $ik->id,
         ]);
         Model::reguard();
     }

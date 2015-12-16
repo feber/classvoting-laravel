@@ -31,7 +31,8 @@ class VoteController extends Controller
         // ambil kelas buat vote dengan prodi yang sama
         // if not voted
 
-        $makuls = MataKuliah::all();
+        $account = Auth::user()->userable;
+        $makuls = MataKuliah::where('prodi_id', $account->prodi_id)->get();
 
         return view('vote.start', compact('makuls'));
     }
@@ -45,9 +46,6 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        // TODO loop through input
-        // set status voted
-        // dd($request->vote);
         foreach($request->vote as $id) {
             $mk = MataKuliah::findOrFail($id);
             $mk->peminat += 1;

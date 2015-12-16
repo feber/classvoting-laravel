@@ -17,7 +17,8 @@ class Dosen extends Model
      * @var string
      */
     protected $fillable = [
-        'nip'
+        'nip',
+        'prodi_id',
     ];
 
     /**

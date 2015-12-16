@@ -17,7 +17,7 @@
     $("#role").on('change', function() {
         // if dosen is selected
         if ($("#role option:selected").text() === "{{$dosen}}") {
-            // add to #additional
+            $("#prodi_id").removeAttr('disabled');
             $("#additional").empty().html(
                 "<div class='form-group'>"+
                 "<label for='nip'>NIP:</label>"+
@@ -25,6 +25,7 @@
                 "</div>"
             );
         } else if ($("#role option:selected").text() === "{{$mahasiswa}}") {
+            $("#prodi_id").removeAttr('disabled');
             $("#additional").empty().html(
                 "<div class='form-group'>"+
                 "<label for='nim'>NIM:</label>"+
@@ -34,6 +35,7 @@
         } else {
             // set is empty to admin
             $("#additional").empty();
+            $("#prodi_id").attr('disabled', 'disabled');
         }
     });
 </script>

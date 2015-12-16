@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Admin;
 use App\Dosen;
+use App\ProgramStudi;
 use App\Mahasiswa;
 use DB;
 
@@ -37,8 +38,9 @@ class UserDataController extends Controller
             User::TYPE_DOSEN => $dosen,
             User::TYPE_ADMIN => substr(User::TYPE_ADMIN, 4),
         ];
+        $prodis = ProgramStudi::lists('nama', 'id');
 
-        return view('user.create', compact('dosen', 'mahasiswa', 'roles'));
+        return view('user.create', compact('dosen', 'mahasiswa', 'roles', 'prodis'));
     }
 
     /**
@@ -54,8 +56,10 @@ class UserDataController extends Controller
             $account = null;
             if ($request->role === User::TYPE_MAHASISWA) {
                 $account = Mahasiswa::create(['nim' => $request->nim]);
+                $account->prodi_id = $request->prodi_id;
             } elseif ($request->role === User::TYPE_DOSEN) {
                 $account = Dosen::create(['nip' => $request->nip]);
+                $account->prodi_id = $request->prodi_id;
             } else {
                 $account = Admin::create();
             }
@@ -98,8 +102,9 @@ class UserDataController extends Controller
         $user = User::findOrFail($id);
         $dosen = User::TYPE_DOSEN;
         $mahasiswa = User::TYPE_MAHASISWA;
+        $prodis = ProgramStudi::lists('nama', 'id');
 
-        return view('user.edit', compact('user', 'dosen', 'mahasiswa'));
+        return view('user.edit', compact('user', 'dosen', 'mahasiswa', 'prodis'));
     }
 
     /**
@@ -125,8 +130,10 @@ class UserDataController extends Controller
             $account = $user->userable;
             if (get_class($account) === User::TYPE_MAHASISWA) {
                 $account->nim = $request->nim;
+                $account->prodi_id = $request->prodi_id;
             } elseif (get_class($account) === User::TYPE_DOSEN) {
                 $account->nip = $request->nip;
+                $account->prodi_id = $request->prodi_id;
             }
             $account->save();
         });

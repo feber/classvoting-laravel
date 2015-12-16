@@ -18,6 +18,7 @@ class Mahasiswa extends Model
      */
     protected $fillable = [
         'nim',
+        'prodi_id',
     ];
 
     /**

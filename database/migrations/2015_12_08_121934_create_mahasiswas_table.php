@@ -16,6 +16,8 @@ class CreateMahasiswasTable extends Migration
             $table->increments('id');
             $table->string('nim', 20);
             $table->boolean('voted')->default(false);
+            $table->integer('prodi_id')->unsigned();
+            $table->foreign('prodi_id')->references('id')->on('program_studi')->onDelete('cascade');
             $table->timestamps();
         });
     }
