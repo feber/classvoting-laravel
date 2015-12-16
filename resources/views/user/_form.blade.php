@@ -4,8 +4,8 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('email', 'Email:') !!}
-    {!! Form::email('email', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('username', 'Username:') !!}
+    {!! Form::text('username', null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <div class="form-group">

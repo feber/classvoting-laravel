@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -24,6 +26,15 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     protected $redirectPath = '/';
+
+    public function authenticate(Request $request)
+    {
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+            return redirect()->intended('/');
+        }
+
+        return back()->withInput()->withErrors(['Account not found']);
+    }
 
     /**
      * Create a new authentication controller instance.

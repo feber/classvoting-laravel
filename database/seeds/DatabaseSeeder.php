@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         $admin = Admin::create();
         $user = User::create([
             'nama' => 'feber',
-            'email' => 'feber@a.a',
+            'username' => 'feber',
             'password' => bcrypt('feber'),
             'userable_id' => $admin->id,
             'userable_type' => User::TYPE_ADMIN,
@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $user = User::create([
             'nama' => 'mahar',
-            'email' => 'mahar@a.a',
+            'username' => 'mahar',
             'password' => bcrypt('mahar'),
             'userable_id' => $dosen->id,
             'userable_type' => User::TYPE_DOSEN,
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $user = User::create([
             'nama' => 'sendy',
-            'email' => 'sendy@a.a',
+            'username' => 'sendy',
             'password' => bcrypt('sendy'),
             'userable_id' => $dosen->id,
             'userable_type' => User::TYPE_DOSEN,
@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $user = User::create([
             'nama' => 'dimas',
-            'email' => 'dimas@a.a',
+            'username' => 'dimas',
             'password' => bcrypt('dimas'),
             'userable_id' => $mahasiswa->id,
             'userable_type' => User::TYPE_MAHASISWA,
@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $user = User::create([
             'nama' => 'ali',
-            'email' => 'ali@a.a',
+            'username' => 'ali',
             'password' => bcrypt('ali'),
             'userable_id' => $mahasiswa->id,
             'userable_type' => User::TYPE_MAHASISWA,

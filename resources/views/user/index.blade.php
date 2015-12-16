@@ -7,7 +7,7 @@
 <thead>
     <tr>
         <th>Nama</th>
-        <th>Email</th>
+        <th>Username</th>
         <th>Role</th>
         <th>Aksi</th>
     </tr>
@@ -18,7 +18,7 @@
         <td>
             <a href="{{url('user', [$item->id])}}">{{ $item->nama }}</a>
         </td>
-        <td>{{ $item->email }}</td>
+        <td>{{ $item->username }}</td>
         <td>{{ substr($item->userable_type, 4) }}</td>
         <td>
             {!! Form::open(array('url' => 'user/'.$item->id)) !!}

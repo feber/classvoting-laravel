@@ -66,7 +66,7 @@ class UserDataController extends Controller
 
             $user = new User();
             $user->nama = $request->nama;
-            $user->email = $request->email;
+            $user->username = $request->username;
             $user->password = bcrypt($request->password);
             $user->userable_id = $account->id;
             $user->userable_type = get_class($account);
@@ -120,7 +120,7 @@ class UserDataController extends Controller
         DB::transaction(function () use ($request, $id) {
             $user = User::findOrFail($id);
             $user->nama = $request->nama;
-            $user->email = $request->email;
+            $user->username = $request->username;
             // if password changed
             if ($request->password !== '') {
                 $user->password = bcrypt($request->password);
