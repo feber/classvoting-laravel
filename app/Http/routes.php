@@ -20,12 +20,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// TODO dosen milih mata kuliah auto buka kelas
+Route::get('report', 'ReportController@index');
+
 Route::group(['middleware' => 'role:'.App\User::TYPE_DOSEN], function () {
     Route::resource('kelas', 'KelasController');
 });
 
-// TODO middleware admin
 Route::group(['middleware' => 'role:'.App\User::TYPE_ADMIN], function () {
     Route::resource('makul', 'MataKuliahController');
     Route::resource('prodi', 'ProgramStudiController');

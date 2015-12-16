@@ -10,6 +10,9 @@
         @foreach ($makuls as $item)
             <li class="list-group-item">
                 <label>{!! Form::checkbox('vote[]', $item->id) !!} {{ $item->nama }} </label>
+                <p>
+                    {{ $item->deskripsi }}
+                </p>
             </li>
         @endforeach
 

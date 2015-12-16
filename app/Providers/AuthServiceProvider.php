@@ -46,5 +46,7 @@ class AuthServiceProvider extends ServiceProvider
         $gate->define('vote-makul', function($user) {
             return $user->userable_type === User::TYPE_MAHASISWA;
         });
+
+        // TODO gate for chart
     }
 }
