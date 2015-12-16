@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
         ]);
         $dosen = Dosen::create([
             'nip' => '054',
-            'prodi_id' => $if->id,
+            'prodi_id' => $ik->id,
         ]);
         $user = User::create([
             'nama' => 'sendy',

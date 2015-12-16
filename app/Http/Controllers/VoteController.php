@@ -25,13 +25,10 @@ class VoteController extends Controller
      */
     public function start()
     {
-        // TODO filter by nim
-        // kalo if nimnya prodi berapa
-        // kalo yang lain berapa
-        // ambil kelas buat vote dengan prodi yang sama
-        // if not voted
-
         $account = Auth::user()->userable;
+        if ($account->voted) {
+            return redirect('vote');
+        }
         $makuls = MataKuliah::where('prodi_id', $account->prodi_id)->get();
 
         return view('vote.start', compact('makuls'));
@@ -46,14 +43,15 @@ class VoteController extends Controller
      */
     public function store(Request $request)
     {
-        foreach($request->vote as $id) {
+        foreach ($request->vote as $id) {
             $mk = MataKuliah::findOrFail($id);
             $mk->peminat += 1;
             $mk->save();
         }
-        $account=Auth::user()->userable;
-        $account->voted=true;
+        $account = Auth::user()->userable;
+        $account->voted = true;
         $account->save();
+
         return redirect('vote');
     }
 }

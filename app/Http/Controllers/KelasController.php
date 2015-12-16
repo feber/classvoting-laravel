@@ -28,7 +28,9 @@ class KelasController extends Controller
      */
     public function create()
     {
-        $makuls = MataKuliah::lists('nama', 'id')->toArray();
+        $account = Auth::user()->userable;
+        $makuls = MataKuliah::where('prodi_id', $account->prodi_id)
+            ->lists('nama', 'id')->toArray();
 
         return view('kelas.create', compact('makuls'));
     }
@@ -65,7 +67,9 @@ class KelasController extends Controller
         if ($kelas->dosen_id !== Auth::user()->id) {
             return redirect('kelas');
         }
-        $makuls = MataKuliah::lists('nama', 'id')->toArray();
+        $account = Auth::user()->userable;
+        $makuls = MataKuliah::where('prodi_id', $account->prodi_id)
+            ->lists('nama', 'id')->toArray();
 
         return view('kelas.edit', compact('kelas', 'makuls'));
     }

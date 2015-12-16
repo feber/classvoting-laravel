@@ -11,8 +11,8 @@
 
 @if(Auth::user()->userable->voted)
 <hr>
-<p class="alert alert-danger">
-    Maaf, Anda sudah melakukan voting.
+<p class="alert alert-success">
+    Terima kasih sudah melakukan voting.
     Voting hanya dapat dilakukan sekali.
 </p>
 @else
