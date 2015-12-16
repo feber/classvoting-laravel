@@ -19,7 +19,7 @@
             <a href="{{url('user', [$item->id])}}">{{ $item->nama }}</a>
         </td>
         <td>{{ $item->email }}</td>
-        <td>{{ $item->userable_type }}</td>
+        <td>{{ substr($item->userable_type, 4) }}</td>
         <td>
             {!! Form::open(array('url' => 'user/'.$item->id)) !!}
                 <a href="{{url('user', [$item->id, 'edit'])}}" class="btn btn-warning btn-xs">Perbaharui</a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MataKuliah;
+use Auth;
 
 class VoteController extends Controller
 {
@@ -28,6 +29,7 @@ class VoteController extends Controller
         // kalo if nimnya prodi berapa
         // kalo yang lain berapa
         // ambil kelas buat vote dengan prodi yang sama
+        // if not voted
 
         $makuls = MataKuliah::all();
 
@@ -44,6 +46,16 @@ class VoteController extends Controller
     public function store(Request $request)
     {
         // TODO loop through input
-        // set status mhs ini udah vote
+        // set status voted
+        // dd($request->vote);
+        foreach($request->vote as $id) {
+            $mk = MataKuliah::findOrFail($id);
+            $mk->peminat += 1;
+            $mk->save();
+        }
+        $account=Auth::user()->userable;
+        $account->voted=true;
+        $account->save();
+        return redirect('vote');
     }
 }

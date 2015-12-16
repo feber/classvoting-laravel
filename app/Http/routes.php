@@ -35,4 +35,5 @@ Route::group(['middleware' => 'role:'.App\User::TYPE_ADMIN], function () {
 Route::group(['middleware' => 'role:'.App\User::TYPE_MAHASISWA], function () {
     Route::get('vote', 'VoteController@index');
     Route::get('vote/start', 'VoteController@start');
+    Route::post('vote', 'VoteController@store');
 });
